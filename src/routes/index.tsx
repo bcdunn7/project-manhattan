@@ -102,11 +102,11 @@ export default component$(() => {
 });
 
 export const head: DocumentHead = {
-  title: 'Welcome to Qwik',
+  title: 'Frontier Martial Arts',
   meta: [
     {
-      name: 'description',
-      content: 'Qwik site description',
+      name: 'frontier martial arts',
+      content: 'This is a mock martial arts website as a demo',
     },
   ],
 };
