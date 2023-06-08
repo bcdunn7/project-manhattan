@@ -1,0 +1,30 @@
+{
+  "students": [
+    {
+      "id": 100,
+      "name": "John"
+    },
+    {
+      "id": 101,
+      "name": "Peter"
+    },
+    {
+      "id": 102,
+      "name": "Mark"
+    }
+  ],
+  "instructors": [
+    {
+      "id": 100,
+      "name": "Mark Taylor"
+    },
+    {
+      "id": 101,
+      "name": "Steven Howe"
+    },
+    {
+      "id": 102,
+      "name": "Starra Zweygardt"
+    }
+  ]
+}
