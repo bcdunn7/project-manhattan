@@ -1,14 +1,17 @@
 import { component$ } from "@builder.io/qwik";
+import { Link } from "@builder.io/qwik-city";
 
 export default component$(() => {
   return (
-    <div class='flex w-full justify-between bg-gray-100 h-20'>
-      <h1>Frontier Marial Arts</h1>
+    <div class='flex w-full justify-between bg-gray-100 h-20 items-center'>
+      <Link href="/">
+        Frontier Marial Arts
+      </Link>
 
-      <div>
-        <p>test</p>
-        <p>test</p>
-      </div>
+      <ul class='flex gap-2'>
+        <Link href='/students'>Students</Link>
+        <Link href='/instructors'>Instructors</Link>
+      </ul>
     </div>
   )
 })
