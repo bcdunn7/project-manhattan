@@ -24,12 +24,12 @@ export default component$(() => {
   return (
     <div class='flex flex-col h-screen'>
       <Header />
-      <div class='h-20'>
-        <Form onSubmit$={handleSubmit}>
-          <Field name='query'>
-            {(field, props) => <input {...props} type='text' />}
+      <div class='h-20 flex items-center'>
+        <Form onSubmit$={handleSubmit} class='w-full flex justify-between   gap-4 mx-16'>
+          <Field name='query' >
+            {(field, props) => <input class='flex grow h-12 border rounded border-gray-700 px-4' {...props} type='text' />}
           </Field>
-          <button type='submit' disabled={frontierHelperForm.submitting}>
+          <button class='border rounded w-20' type='submit' disabled={frontierHelperForm.submitting}>
             Go!
           </button>
         </Form>
