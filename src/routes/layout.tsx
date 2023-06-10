@@ -18,7 +18,9 @@ export default component$(() => {
   });
 
   const handleSubmit: SubmitHandler<FrontierHelperForm> = $(({ query }) => {
-    console.log(query);
+    if (query.length) {
+      console.log(query);
+    }
   })
 
   return (

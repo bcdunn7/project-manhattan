@@ -1,3 +1,9 @@
+export type Person = {
+  id: number;
+  name: string;
+  rank: BeltRank;
+}
+
 export type BeltRank =
   | 'white'
   | 'yellow'

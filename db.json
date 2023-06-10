@@ -3,32 +3,38 @@
     {
       "id": 100,
       "name": "John",
-      "rank": "yellow"
+      "rank": "yellow",
+      "courseId": 100
     },
     {
       "id": 106,
       "name": "Grace",
-      "rank": "green"
+      "rank": "green",
+      "courseId": 100
     },
     {
       "id": 101,
       "name": "Peter",
-      "rank": "brown-2"
+      "rank": "brown-2",
+      "courseId": 102
     },
     {
       "id": 102,
-      "name": "Mark",
-      "rank": "black-temp"
+      "name": "Ben",
+      "rank": "black-temp",
+      "courseId": 103
     },
     {
       "id": 103,
       "name": "Logan",
-      "rank": "red-3"
+      "rank": "red-3",
+      "courseId": null
     },
     {
       "id": 104,
       "name": "Julia",
-      "rank": "orange"
+      "rank": "orange",
+      "courseId": null
     }
   ],
   "instructors": [
@@ -51,23 +57,31 @@
   "courses": [
     {
       "id": 100,
+      "name": "Starting Karate",
       "level": "beginner",
-      "label": "1A"
+      "label": "1A",
+      "instructorId": 102
     },
     {
-      "id": 100,
+      "id": 101,
+      "name": "Learning to Love with Tae Kwon Do",
       "level": "beginner",
-      "label": "1B"
+      "label": "1B",
+      "instructorId": 100
     },
     {
-      "id": 100,
+      "id": 102,
+      "name": "Developing Krav Maga Skills",
       "level": "intermediate",
-      "label": "2A"
+      "label": "2A",
+      "instructorId": 101
     },
     {
-      "id": 100,
+      "id": 103,
+      "name": "Krav Maga: Advanced Knife Defense",
       "level": "advanced",
-      "label": "3A"
+      "label": "3A",
+      "instructorId": 100
     }
   ]
 }
