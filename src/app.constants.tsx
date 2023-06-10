@@ -1,4 +1,4 @@
-import { BeltRank } from "./app.models";
+import { BeltRank } from './app.models';
 
 export const BELT_COLORS_BG_TAILWIND = {
   white: 'white',

@@ -1,5 +1,5 @@
-import { component$, $ } from "@builder.io/qwik";
-import { BeltRank } from "~/app.models";
+import { component$, $ } from '@builder.io/qwik';
+import { BeltRank } from '~/app.models';
 
 interface BeltBadgeProps {
   rank: BeltRank;

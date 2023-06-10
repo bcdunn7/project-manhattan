@@ -2,29 +2,72 @@
   "students": [
     {
       "id": 100,
-      "name": "John"
+      "name": "John",
+      "rank": "yellow"
+    },
+    {
+      "id": 106,
+      "name": "Grace",
+      "rank": "green"
     },
     {
       "id": 101,
-      "name": "Peter"
+      "name": "Peter",
+      "rank": "brown-2"
     },
     {
       "id": 102,
-      "name": "Mark"
+      "name": "Mark",
+      "rank": "black-temp"
+    },
+    {
+      "id": 103,
+      "name": "Logan",
+      "rank": "red-3"
+    },
+    {
+      "id": 104,
+      "name": "Julia",
+      "rank": "orange"
     }
   ],
   "instructors": [
     {
       "id": 100,
-      "name": "Mark Taylor"
+      "name": "Mark Taylor",
+      "rank": "black-4"
     },
     {
       "id": 101,
-      "name": "Steven Howe"
+      "name": "Steven Howe",
+      "rank": "black-2"
     },
     {
       "id": 102,
-      "name": "Starra Zweygardt"
+      "name": "Starra Zweygardt",
+      "rank": "black-1"
+    }
+  ],
+  "courses": [
+    {
+      "id": 100,
+      "level": "beginner",
+      "label": "1A"
+    },
+    {
+      "id": 100,
+      "level": "beginner",
+      "label": "1B"
+    },
+    {
+      "id": 100,
+      "level": "intermediate",
+      "label": "2A"
+    },
+    {
+      "id": 100,
+      "level": "advanced",
+      "label": "3A"
     }
   ]
 }

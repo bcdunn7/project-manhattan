@@ -1,8 +1,8 @@
-import { Slot, component$, $ } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
-import { InitialValues, SubmitHandler, useForm } from "@modular-forms/qwik";
-import Footer from "~/components/footer";
-import Header from "~/components/header";
+import { Slot, component$, $ } from '@builder.io/qwik';
+import { routeLoader$ } from '@builder.io/qwik-city';
+import { InitialValues, SubmitHandler, useForm } from '@modular-forms/qwik';
+import Footer from '~/components/footer';
+import Header from '~/components/header';
 
 type FrontierHelperForm = {
   query: string;

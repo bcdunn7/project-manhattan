@@ -1,10 +1,12 @@
-import { component$ } from "@builder.io/qwik";
-import { routeLoader$ } from "@builder.io/qwik-city";
-import { type } from "os";
+import { component$ } from '@builder.io/qwik';
+import { routeLoader$ } from '@builder.io/qwik-city';
+import { BeltRank } from '~/app.models';
+import BeltBadge from '~/components/belt-badge';
 
 type Instructor = {
   id: string;
   name: string;
+  rank: BeltRank;
 }
 
 export const useInstructors = routeLoader$(async () => {
@@ -20,7 +22,12 @@ export default component$(() => {
       <h1>Instructors</h1>
       <ul>
         {instructors.value.map((instructor) => (
-          <li>{instructor.name}</li>
+          <li class='flex items-center'>
+            <span>
+              {instructor.name}
+            </span>
+            <BeltBadge rank={instructor.rank} />
+          </li>
         ))}
       </ul>
     </div>
