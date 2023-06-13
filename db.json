@@ -38,51 +38,51 @@
     },
     {
       "id": 105,
-      "name": "",
-      "rank": "",
-      "courseId": null
+      "name": "Edi Valko",
+      "rank": "red-3",
+      "courseId": 103
     },
     {
       "id": 106,
-      "name": "",
-      "rank": "",
-      "courseId": null
+      "name": "Terence Thomas",
+      "rank": "blue",
+      "courseId": 102
     },
     {
       "id": 107,
-      "name": "",
-      "rank": "",
-      "courseId": null
+      "name": "Suzi Nanako",
+      "rank": "green",
+      "courseId": 102
     },
     {
       "id": 108,
-      "name": "",
-      "rank": "",
-      "courseId": null
+      "name": "Wanda Dervila",
+      "rank": "yellow",
+      "courseId": 100
     },
     {
       "id": 109,
-      "name": "",
-      "rank": "",
-      "courseId": null
+      "name": "Rosemary Emiliano",
+      "rank": "black-2",
+      "courseId": 103
     },
     {
       "id": 110,
-      "name": "",
-      "rank": "",
-      "courseId": null
+      "name": "Raymond Masood",
+      "rank": "white",
+      "courseId": 100
     },
     {
       "id": 111,
-      "name": "",
-      "rank": "",
-      "courseId": null
+      "name": "Sebastian Marko",
+      "rank": "purple",
+      "courseId": 100
     },
     {
       "id": 112,
-      "name": "",
-      "rank": "",
-      "courseId": null
+      "name": "Sayuz Marka",
+      "rank": "brown-2",
+      "courseId": 102
     }
   ],
   "instructors": [
