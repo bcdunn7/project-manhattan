@@ -1,9 +1,10 @@
 import { component$ } from '@builder.io/qwik';
 import { routeLoader$, useLocation } from '@builder.io/qwik-city';
 import { Course } from './models';
+import CourseCard from '~/components/course-card';
 
 export const useCourses = routeLoader$(async ({ params }) => {
-  const res = await fetch(`http://localhost:3000/courses${params.level ? '?' + params.level : ''}`);
+  const res = await fetch(`http://localhost:3000/courses?_embed=students`);
   return await res.json() as Course[];
 })
 
@@ -13,7 +14,7 @@ export default component$(() => {
   const courseLevel = loc.params.level;
 
   return (
-    <div>
+    <div class='w-full'>
       <h1>Courses</h1>
 
       <div>
@@ -43,22 +44,12 @@ export default component$(() => {
         </div>
 
 
-        <ul>
+        <ul class='flex gap-4 m-8 justify-center w-full'>
           {courses.value.map((course) => (
-            <a href={`${course.id}`}>
-              <li class='flex items-center'>
-                <span>{course.label}</span>
-                <span>{course.name}</span>
-                {/* TODO: capitalize */}
-                <span class='capitalize'>
-                  {course.level}
-                </span>
-              </li>
-            </a>
+            <CourseCard course={course} key={course.id} />
           ))}
         </ul>
       </div>
     </div>
-
   )
 })
