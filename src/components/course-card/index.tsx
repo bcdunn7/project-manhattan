@@ -19,7 +19,7 @@ export default component$<CourseCardProps>(({ course }) => {
           </div>
           <LevelBadge level={course.level} />
         </div>
-        <span class='text-xl'>{course.name}</span>
+        <div class='text-xl h-16'>{course.name}</div>
         {course.instructor?.id && <span>{course.instructor.name}</span>}
         <hr class='mb-2' />
         <div class='flex gap-1'>

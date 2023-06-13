@@ -1,8 +1,8 @@
 import { component$ } from '@builder.io/qwik';
 import { routeLoader$, } from '@builder.io/qwik-city';
-import { BeltRank } from '~/app.models';
 import BeltBadge from '~/components/belt-badge';
 import { Student } from './models';
+import PageTitle from '~/components/page-title';
 
 export const useStudents = routeLoader$(async () => {
   const res = await fetch('http://localhost:3000/students');
@@ -13,8 +13,9 @@ export default component$(() => {
   const students = useStudents();
 
   return (
-    <div>
-      <h1>Students</h1>
+    <div class='m-4'>
+      <PageTitle>Students</PageTitle>
+
       <ul>
         {students.value.map((student) => (
           <li class='flex items-center'>

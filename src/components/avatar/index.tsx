@@ -9,7 +9,7 @@ type AvatarProps = {
 export default component$<AvatarProps>((props) => {
   const constructInitials = (name: string) => {
     const splitName = name.split(' ');
-    return `${splitName[0].charAt(0)}${splitName[1].charAt(0)}`
+    return `${splitName[0]?.charAt(0)}${splitName[1]?.charAt(0)}`
   }
 
   const initials = constructInitials(props.person.name);

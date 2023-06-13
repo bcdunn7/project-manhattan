@@ -39,8 +39,8 @@
     {
       "id": 105,
       "name": "",
-      "rank": "yellow",
-      "courseId": 100
+      "rank": "",
+      "courseId": null
     },
     {
       "id": 106,
@@ -112,7 +112,7 @@
     },
     {
       "id": 101,
-      "name": "Learning to Love Yourself with Tae Kwon Do",
+      "name": "Learning to Love Tae Kwon Do",
       "level": "beginner",
       "label": "1B",
       "instructorId": 100

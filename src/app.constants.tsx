@@ -28,8 +28,9 @@ export const BELT_COLORS_BORDER_TAILWIND = {
   purple: 'border-purple-300',
   blue: 'border-blue-300',
   green: 'border-green-300',
-  brown: 'border-amber-300',
-  'brown-2': 'border-amber-500',
+  // TODO: no brown?
+  brown: 'border-brown-300',
+  'brown-2': 'border-brown-500',
   red: 'border-red-300',
   'red-2': 'border-red-500',
   'red-3': 'border-red-700',
