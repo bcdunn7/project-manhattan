@@ -1,3 +1,26 @@
+export const BELT_RANK_ORDER = {
+  white: 0,
+  yellow: 1,
+  orange: 2,
+  purple: 3,
+  blue: 4,
+  green: 5,
+  brown: 6,
+  'brown-2': 7,
+  red: 8,
+  'red-2': 9,
+  'red-3': 10,
+  'black-temp': 11,
+  'black-1': 12,
+  'black-2': 13,
+  'black-3': 14,
+  'black-4': 15,
+  'black-5': 16,
+  'black-6': 17,
+  'black-7': 18,
+  'black-8': 19
+}
+
 export const BELT_COLORS_BG_TAILWIND = {
   white: 'bg-white',
   yellow: 'bg-yellow-300',

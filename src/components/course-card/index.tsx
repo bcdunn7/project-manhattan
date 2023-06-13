@@ -4,6 +4,7 @@ import LevelBadge from "../level-badge";
 import avatar from "../avatar";
 import Avatar from "../avatar";
 import students from "~/routes/students";
+import { BELT_RANK_ORDER } from "~/app.constants";
 
 type CourseCardProps = {
   course: Course;
@@ -23,7 +24,9 @@ export default component$<CourseCardProps>(({ course }) => {
         {course.instructor?.id && <span>{course.instructor.name}</span>}
         <hr class='mb-2' />
         <div class='flex gap-1 flex-wrap'>
-          {course.students?.length ? course.students.map((student) => {
+          {course.students?.length ? course.students.sort((a, b) => {
+            return BELT_RANK_ORDER[a.rank] - BELT_RANK_ORDER[b.rank]
+          }).map((student) => {
             return <Avatar person={student} key={student.id} />
           }) : 'No Students Enrolled 😔'}
         </div>

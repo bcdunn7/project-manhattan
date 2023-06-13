@@ -18,7 +18,7 @@ export default component$(() => {
 
       <ul>
         {instructors.value.map((instructor) => (
-          <li class='flex items-center m-2 text-2xl'>
+          <li class='flex items-center m-2 text-2xl gap-1'>
             🧙
             <span>
               {instructor.name}

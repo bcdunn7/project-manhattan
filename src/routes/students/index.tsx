@@ -3,6 +3,7 @@ import { routeLoader$, } from '@builder.io/qwik-city';
 import BeltBadge from '~/components/belt-badge';
 import { Student } from './models';
 import PageTitle from '~/components/page-title';
+import { BELT_RANK_ORDER } from '~/app.constants';
 
 export const useStudents = routeLoader$(async () => {
   const res = await fetch('http://localhost:3000/students');
@@ -16,9 +17,11 @@ export default component$(() => {
     <div class='m-4'>
       <PageTitle>Students</PageTitle>
 
-      <ul>
-        {students.value.map((student) => (
-          <li class='flex items-center'>
+      <ul class='flex flex-wrap'>
+        {students.value.sort((a, b) => {
+          return BELT_RANK_ORDER[a.rank] - BELT_RANK_ORDER[b.rank]
+        }).map((student) => (
+          <li class='flex items-center my-2 text-lg gap-1 w-56'>
             <span>{student.name}</span>
             <BeltBadge rank={student.rank} />
           </li>
