@@ -29,9 +29,9 @@ export default component$(() => {
       <div class='mt-4 h-18 flex items-center'>
         <Form onSubmit$={handleSubmit} class='w-full flex justify-between   gap-4 mx-16'>
           <Field name='query' >
-            {(field, props) => <input class='flex grow h-12 border rounded border-gray-700 px-4' {...props} type='text' />}
+            {(field, props) => <input class='flex grow h-12 border rounded border-purple-800 px-4' {...props} type='text' />}
           </Field>
-          <button class='border rounded w-20' type='submit' disabled={frontierHelperForm.submitting}>
+          <button class='border rounded border-purple-800 w-20' type='submit' disabled={frontierHelperForm.submitting}>
             Go!
           </button>
         </Form>

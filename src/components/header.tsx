@@ -8,7 +8,7 @@ export default component$(() => {
   const isCoursesActive = url.toString().includes('courses');
 
   return (
-    <div class='flex w-full justify-between bg-gray-100 h-20 items-center px-4'>
+    <div class='flex w-full justify-between bg-purple-50 h-20 items-center px-4'>
       <div class='flex items-center gap-4'>
         <img src='/favicon.ico' class='h-8 w-8' />
         <a href='/' class='text-4xl'>
