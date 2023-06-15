@@ -12,14 +12,14 @@ export const useCourses = routeLoader$(async ({ params }) => {
 export default component$(() => {
   const courses = useCourses();
   const loc = useLocation();
-  const courseLevel = loc.params.level;
+  // const courseLevel = loc.params.level;
 
   return (
     <div class='w-full m-4'>
       <PageTitle>Courses</PageTitle>
 
       <div>
-        <div>
+        {/* <div>
           <a
             href='/courses'
             class={!courseLevel ? 'text-red-600' : 'cursor-pointer'}>
@@ -42,7 +42,7 @@ export default component$(() => {
             class={courseLevel === 'advanced' ? 'text-red-600' : 'cursor-pointer'}>
             Advanced
           </a>
-        </div>
+        </div> */}
 
 
         <div class='flex gap-4 m-8 justify-center'>
