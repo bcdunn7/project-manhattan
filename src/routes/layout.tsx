@@ -1,4 +1,4 @@
-import { Slot, component$, $, useVisibleTask$, useSignal } from '@builder.io/qwik';
+import { Slot, component$, $ } from '@builder.io/qwik';
 import { routeLoader$, useNavigate } from '@builder.io/qwik-city';
 import { InitialValues, SubmitHandler, useForm } from '@modular-forms/qwik';
 import Footer from '~/components/footer';
@@ -40,7 +40,7 @@ export default component$(() => {
           if (resp.finish_reason === 'function_call') {
             console.log(`${resp.function.name}(${JSON.stringify(resp.function.args)})`)
 
-            const func = { ...globalFunctionMap, ...additionalFunctions }[resp.function.name as keyof typeof globalFunctionMap];
+            const func: Function = { ...globalFunctionMap, ...additionalFunctions }[resp.function.name as keyof typeof globalFunctionMap];
             console.log(func);
             if (func) {
               func(JSON.parse(resp.function.args));
