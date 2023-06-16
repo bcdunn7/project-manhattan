@@ -21,7 +21,7 @@ export default component$(() => {
         {students.value.sort((a, b) => {
           return BELT_RANK_ORDER[a.rank] - BELT_RANK_ORDER[b.rank]
         }).map((student) => (
-          <li class='flex items-center my-2 text-lg gap-1 w-56'>
+          <li class='flex items-center my-2 text-lg gap-1 w-56' key={student.id}>
             <span>{student.name}</span>
             <BeltBadge rank={student.rank} />
           </li>

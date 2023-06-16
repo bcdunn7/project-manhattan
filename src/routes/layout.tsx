@@ -1,8 +1,9 @@
 import { Slot, component$, $, useVisibleTask$, useSignal } from '@builder.io/qwik';
-import { routeLoader$ } from '@builder.io/qwik-city';
+import { routeLoader$, useNavigate } from '@builder.io/qwik-city';
 import { InitialValues, SubmitHandler, useForm } from '@modular-forms/qwik';
 import Footer from '~/components/footer';
 import Header from '~/components/header';
+import { globalFunctionMap } from '~/function-mapping';
 
 type FrontierHelperForm = {
   query: string;
@@ -16,23 +17,57 @@ export default component$(() => {
   const [frontierHelperForm, { Form, Field }] = useForm<FrontierHelperForm>({
     loader: useFormLoader(),
   });
+  const nav = useNavigate();
+  const additionalFunctions = {
+    navigate: $((arg: { url: string }) => nav(arg.url)),
+  }
 
-  const handleSubmit: SubmitHandler<FrontierHelperForm> = $(({ query }) => {
+  const handleSubmit: SubmitHandler<FrontierHelperForm> = $(async ({ query }) => {
     if (query.length) {
-      console.log(query);
+      console.log('Query:', query);
+
+      fetch('http://localhost:3001/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ query }),
+      }).then((manhattanExpressResp) => {
+        console.log('express resp', manhattanExpressResp);
+        manhattanExpressResp.json().then(({ resp }) => {
+          console.log('resp content', resp);
+
+          if (resp.finish_reason === 'function_call') {
+            console.log(`${resp.function.name}(${JSON.stringify(resp.function.args)})`)
+
+            const func = { ...globalFunctionMap, ...additionalFunctions }[resp.function.name as keyof typeof globalFunctionMap];
+            console.log(func);
+            if (func) {
+              func(JSON.parse(resp.function.args));
+            } else {
+              console.warn('No function found')
+            }
+          } else if (resp.finish_reason === 'stop') {
+            console.log('stop')
+            console.log(resp.message.content)
+          } else {
+            console.warn('No mapping for finish_reason')
+          }
+        });
+      });
     }
   })
 
   // TODO: is this worth it? styling for focus/cmd+k; not done either way
-  useVisibleTask$(() => {
-    window.addEventListener('keydown', (keydown) => {
+  // useVisibleTask$(() => {
+  //   window.addEventListener('keydown', (keydown) => {
 
-      if (keydown.key?.toLowerCase() === 'k' && keydown.metaKey) {
-        console.log(keydown);
-        (document.querySelector('#formDiv') as HTMLElement).focus();
-      }
-    })
-  })
+  //     if (keydown.key?.toLowerCase() === 'k' && keydown.metaKey) {
+  //       console.log(keydown);
+  //       (document.querySelector('#formDiv') as HTMLElement).focus();
+  //     }
+  //   })
+  // })
 
   return (
     <div class='flex flex-col h-screen'>
