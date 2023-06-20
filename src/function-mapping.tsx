@@ -1,6 +1,6 @@
-import { deleteStudent } from "./utility/delete-students";
+import { deleteStudent } from './utility/delete-students'
 
 export const globalFunctionMap = {
-  log: (message: string) => console.log(message),
-  deleteStudent: deleteStudent,
+  log: (message: string) => { console.log(message) },
+  deleteStudent
 }

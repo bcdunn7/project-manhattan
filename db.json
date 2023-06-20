@@ -13,12 +13,6 @@
       "courseId": 100
     },
     {
-      "id": 101,
-      "name": "Peter Piper",
-      "rank": "brown-2",
-      "courseId": 102
-    },
-    {
       "id": 102,
       "name": "Ben Jamin",
       "rank": "black-temp",
@@ -46,12 +40,6 @@
       "id": 106,
       "name": "Terence Thomas",
       "rank": "blue",
-      "courseId": 102
-    },
-    {
-      "id": 107,
-      "name": "Suzi Nanako",
-      "rank": "green",
       "courseId": 102
     },
     {

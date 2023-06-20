@@ -10,18 +10,19 @@
  * - npm run build
  *
  */
-import { renderToStream, type RenderToStreamOptions } from '@builder.io/qwik/server';
-import { manifest } from '@qwik-client-manifest';
-import Root from './root';
+import { renderToStream, type RenderToStreamOptions } from '@builder.io/qwik/server'
+import { manifest } from '@qwik-client-manifest'
+import Root from './root'
 
-export default function (opts: RenderToStreamOptions) {
-  return renderToStream(<Root />, {
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export default async function (opts: RenderToStreamOptions) {
+  return await renderToStream(<Root />, {
     manifest,
     ...opts,
     // Use container attributes to set attributes on the html tag.
     containerAttributes: {
       lang: 'en-us',
-      ...opts.containerAttributes,
-    },
-  });
+      ...opts.containerAttributes
+    }
+  })
 }

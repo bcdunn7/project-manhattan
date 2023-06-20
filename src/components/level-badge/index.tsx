@@ -1,13 +1,13 @@
-import { component$ } from "@builder.io/qwik";
-import { CourseLevel } from "~/routes/courses/models";
+import { component$ } from '@builder.io/qwik'
+import { type CourseLevel } from '~/routes/courses/models'
 
-type LevelBadgeProps = {
-  level: CourseLevel;
+interface LevelBadgeProps {
+  level: CourseLevel
 }
 
 export default component$<LevelBadgeProps>(({ level }) => {
-  let bg = '';
-  let text = '';
+  let bg = ''
+  let text = ''
 
   if (level === 'beginner') {
     bg = 'bg-green-100'

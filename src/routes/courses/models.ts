@@ -1,13 +1,13 @@
-import { Instructor } from "../instructors/models";
-import { Student } from "../students/models";
+import { type Instructor } from '../instructors/models'
+import { type Student } from '../students/models'
 
-export type CourseLevel = 'beginner' | 'intermediate' | 'advanced';
+export type CourseLevel = 'beginner' | 'intermediate' | 'advanced'
 
-export type Course = {
-  id: number;
-  name: string;
-  level: CourseLevel;
-  label: string;
-  instructor?: Instructor;
-  students?: Student[];
+export interface Course {
+  id: number
+  name: string
+  level: CourseLevel
+  label: string
+  instructor?: Instructor
+  students?: Student[]
 }

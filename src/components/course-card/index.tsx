@@ -1,13 +1,11 @@
-import { component$ } from "@builder.io/qwik";
-import { Course } from "~/routes/courses/models";
-import LevelBadge from "../level-badge";
-import avatar from "../avatar";
-import Avatar from "../avatar";
-import students from "~/routes/students";
-import { BELT_RANK_ORDER } from "~/app.constants";
+import { component$ } from '@builder.io/qwik'
+import { type Course } from '~/routes/courses/models'
+import LevelBadge from '../level-badge'
+import Avatar from '../avatar'
+import { BELT_RANK_ORDER } from '~/app.constants'
 
-type CourseCardProps = {
-  course: Course;
+interface CourseCardProps {
+  course: Course
 }
 
 export default component$<CourseCardProps>(({ course }) => {
@@ -21,14 +19,16 @@ export default component$<CourseCardProps>(({ course }) => {
           <LevelBadge level={course.level} />
         </div>
         <div class='text-xl h-16'>{course.name}</div>
-        {course.instructor?.id && <span>{course.instructor.name}</span>}
+        {((course.instructor?.id) != null) && <span>{course.instructor.name}</span>}
         <hr class='mb-2' />
         <div class='flex gap-1 flex-wrap'>
-          {course.students?.length ? course.students.sort((a, b) => {
-            return BELT_RANK_ORDER[a.rank] - BELT_RANK_ORDER[b.rank]
-          }).map((student) => {
-            return <Avatar person={student} key={student.id} />
-          }) : 'No Students Enrolled 😔'}
+          {(course.students?.length != null)
+            ? course.students.sort((a, b) => {
+              return BELT_RANK_ORDER[a.rank] - BELT_RANK_ORDER[b.rank]
+            }).map((student) => {
+              return <Avatar person={student} key={student.id} />
+            })
+            : 'No Students Enrolled 😔'}
         </div>
       </div>
 

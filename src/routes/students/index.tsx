@@ -1,17 +1,17 @@
-import { component$ } from '@builder.io/qwik';
-import { routeLoader$, } from '@builder.io/qwik-city';
-import BeltBadge from '~/components/belt-badge';
-import { Student } from './models';
-import PageTitle from '~/components/page-title';
-import { BELT_RANK_ORDER } from '~/app.constants';
+import { component$ } from '@builder.io/qwik'
+import { routeLoader$ } from '@builder.io/qwik-city'
+import BeltBadge from '~/components/belt-badge'
+import { type Student } from './models'
+import PageTitle from '~/components/page-title'
+import { BELT_RANK_ORDER } from '~/app.constants'
 
 export const useStudents = routeLoader$(async () => {
-  const res = await fetch('http://localhost:3000/students');
-  return await res.json() as Student[];
+  const res = await fetch('http://localhost:3000/students')
+  return await res.json() as Student[]
 })
 
 export default component$(() => {
-  const students = useStudents();
+  const students = useStudents()
 
   return (
     <div class='m-4'>

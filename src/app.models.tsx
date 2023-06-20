@@ -1,7 +1,7 @@
-export type Person = {
-  id: number;
-  name: string;
-  rank: BeltRank;
+export interface Person {
+  id: number
+  name: string
+  rank: BeltRank
 }
 
 export type BeltRank =
@@ -24,4 +24,4 @@ export type BeltRank =
   | 'black-5'
   | 'black-6'
   | 'black-7'
-  | 'black-8';
+  | 'black-8'

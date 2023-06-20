@@ -1,12 +1,12 @@
-import { Slot, component$, $, useSignal } from '@builder.io/qwik';
-import { routeLoader$, useNavigate } from '@builder.io/qwik-city';
-import { InitialValues, SubmitHandler, useForm } from '@modular-forms/qwik';
-import Footer from '~/components/footer';
-import Header from '~/components/header';
-import { globalFunctionMap } from '~/function-mapping';
+import { Slot, component$, $, useSignal } from '@builder.io/qwik'
+import { routeLoader$, useNavigate } from '@builder.io/qwik-city'
+import { type InitialValues, type SubmitHandler, useForm, type FieldValues } from '@modular-forms/qwik'
+import Footer from '~/components/footer'
+import Header from '~/components/header'
+import { globalFunctionMap } from '~/function-mapping'
 
-type FrontierHelperForm = {
-  query: string;
+interface FrontierHelperForm extends FieldValues {
+  query: string
 }
 
 export const useFormLoader = routeLoader$<InitialValues<FrontierHelperForm>>(() => ({
@@ -15,33 +15,33 @@ export const useFormLoader = routeLoader$<InitialValues<FrontierHelperForm>>(() 
 
 export default component$(() => {
   const [frontierHelperForm, { Form, Field }] = useForm<FrontierHelperForm>({
-    loader: useFormLoader(),
-  });
-  const nav = useNavigate();
+    loader: useFormLoader()
+  })
+  const nav = useNavigate()
   const additionalFunctions = {
-    navigate: $((arg: { url: string }) => nav(arg.url)),
+    navigate: $(async (arg: { url: string }) => { await nav(arg.url) })
   }
-  const loadingResponse = useSignal(false);
+  const loadingResponse = useSignal(false)
 
   const handleSubmit: SubmitHandler<FrontierHelperForm> = $(async ({ query }) => {
-    if (query.length) {
-      console.log('Query:', query);
+    if (query.length !== 0) {
+      console.log('Query:', query)
 
-      loadingResponse.value = true;
-      fetch('http://localhost:3001/', {
+      loadingResponse.value = true
+      void fetch('http://localhost:3001/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ query }),
+        body: JSON.stringify({ query })
       }).then((manhattanExpressResp) => {
-        loadingResponse.value = false;
-        manhattanExpressResp.json().then(({ resp }) => {
+        loadingResponse.value = false
+        void manhattanExpressResp.json().then(({ resp }) => {
           if (resp.finish_reason === 'function_call') {
-            const func: Function = { ...globalFunctionMap, ...additionalFunctions }[resp.function.name as keyof typeof globalFunctionMap];
-            if (func) {
-              func(JSON.parse(resp.function.args));
-              nav();
+            const func: any = { ...globalFunctionMap, ...additionalFunctions }[resp.function.name as keyof typeof globalFunctionMap]
+            if (typeof func === 'function') {
+              func(JSON.parse(resp.function.args))
+              void nav()
             } else {
               console.warn('No function found')
             }
@@ -51,8 +51,8 @@ export default component$(() => {
           } else {
             console.warn('No mapping for finish_reason')
           }
-        });
-      });
+        })
+      })
     }
   })
 

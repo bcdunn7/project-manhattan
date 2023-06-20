@@ -1,11 +1,12 @@
-import { component$ } from '@builder.io/qwik';
-import { useLocation } from '@builder.io/qwik-city';
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
+import { component$ } from '@builder.io/qwik'
+import { useLocation } from '@builder.io/qwik-city'
 
 export default component$(() => {
-  const { url } = useLocation();
-  const isStudentsActive = url.toString().includes('students');
-  const isInstructorsActive = url.toString().includes('instructors');
-  const isCoursesActive = url.toString().includes('courses');
+  const { url } = useLocation()
+  const isStudentsActive = url.toString().includes('students')
+  const isInstructorsActive = url.toString().includes('instructors')
+  const isCoursesActive = url.toString().includes('courses')
 
   return (
     <div class='flex w-full justify-between bg-purple-50 h-20 items-center px-4'>

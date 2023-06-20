@@ -1,22 +1,22 @@
-import { component$ } from '@builder.io/qwik';
-import { routeLoader$ } from '@builder.io/qwik-city';
-import { Course } from '../models';
-import { Student } from '~/routes/students/models';
-import PageTitle from '~/components/page-title';
-import LevelBadge from '~/components/level-badge';
+import { component$ } from '@builder.io/qwik'
+import { routeLoader$ } from '@builder.io/qwik-city'
+import { type Course } from '../models'
+import { type Student } from '~/routes/students/models'
+import PageTitle from '~/components/page-title'
+import LevelBadge from '~/components/level-badge'
 
 export const useCourse = routeLoader$(async ({ params }) => {
-  const courseRes = await fetch(`http://localhost:3000/courses/${params.courseId}?_expand=instructor`);
-  const studentsRes = await fetch(`http://localhost:3000/students?courseId=${params.courseId}`);
+  const courseRes = await fetch(`http://localhost:3000/courses/${params.courseId}?_expand=instructor`)
+  const studentsRes = await fetch(`http://localhost:3000/students?courseId=${params.courseId}`)
 
   return {
     course: await courseRes.json() as Course,
     students: await studentsRes.json() as Student[]
-  };
+  }
 })
 
 export default component$(() => {
-  const courseData = useCourse();
+  const courseData = useCourse()
 
   return (
     <div class='m-4 w-full'>
@@ -37,11 +37,11 @@ export default component$(() => {
         </div>
         <div class='my-4 text-lg'>
           Students{
-            !!courseData.value.students.length
-            && ` (${courseData.value.students.length})`
+            !(courseData.value.students.length === 0) &&
+            ` (${courseData.value.students.length})`
           }:
           {
-            courseData.value.students.length
+            (courseData.value.students.length > 0)
               ? <ul>
                 {courseData.value.students.map((student) => {
                   return <li>- {student.name}</li>

@@ -1,3 +1,3 @@
-import { Person } from "~/app.models";
+import { type Person } from '~/app.models'
 
-export type Instructor = Person;
+export type Instructor = Person

@@ -41,7 +41,7 @@ export const BELT_COLORS_BG_TAILWIND = {
   'black-5': 'bg-black',
   'black-6': 'bg-black',
   'black-7': 'bg-black',
-  'black-8': 'bg-black',
+  'black-8': 'bg-black'
 }
 
 export const BELT_COLORS_BORDER_TAILWIND = {
@@ -64,5 +64,5 @@ export const BELT_COLORS_BORDER_TAILWIND = {
   'black-5': 'border-black',
   'black-6': 'border-black',
   'black-7': 'border-black',
-  'black-8': 'border-black',
+  'black-8': 'border-black'
 }

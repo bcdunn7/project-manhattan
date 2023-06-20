@@ -9,9 +9,10 @@
  * - More code is transferred to the browser than in SSR mode.
  * - Optimizer/Serialization/Deserialization code is not exercised!
  */
-import { render, type RenderOptions } from '@builder.io/qwik';
-import Root from './root';
+import { render, type RenderOptions } from '@builder.io/qwik'
+import Root from './root'
 
-export default function (opts: RenderOptions) {
-  return render(document, <Root />, opts);
+// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+export default async function (opts: RenderOptions) {
+  return await render(document, <Root />, opts)
 }

@@ -1,16 +1,16 @@
-import { component$ } from '@builder.io/qwik';
-import { routeLoader$ } from '@builder.io/qwik-city';
-import BeltBadge from '~/components/belt-badge';
-import { Instructor } from './models';
-import PageTitle from '~/components/page-title';
+import { component$ } from '@builder.io/qwik'
+import { routeLoader$ } from '@builder.io/qwik-city'
+import BeltBadge from '~/components/belt-badge'
+import { type Instructor } from './models'
+import PageTitle from '~/components/page-title'
 
 export const useInstructors = routeLoader$(async () => {
-  const res = await fetch('http://localhost:3000/instructors');
-  return await res.json() as Instructor[];
+  const res = await fetch('http://localhost:3000/instructors')
+  return await res.json() as Instructor[]
 })
 
 export default component$(() => {
-  const instructors = useInstructors();
+  const instructors = useInstructors()
 
   return (
     <div class='m-4'>
@@ -29,4 +29,4 @@ export default component$(() => {
       </ul>
     </div>
   )
-}); 
+})
