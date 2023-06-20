@@ -1,4 +1,4 @@
-import { Slot, component$, $ } from '@builder.io/qwik';
+import { Slot, component$, $, useSignal } from '@builder.io/qwik';
 import { routeLoader$, useNavigate } from '@builder.io/qwik-city';
 import { InitialValues, SubmitHandler, useForm } from '@modular-forms/qwik';
 import Footer from '~/components/footer';
@@ -21,11 +21,13 @@ export default component$(() => {
   const additionalFunctions = {
     navigate: $((arg: { url: string }) => nav(arg.url)),
   }
+  const loadingResponse = useSignal(false);
 
   const handleSubmit: SubmitHandler<FrontierHelperForm> = $(async ({ query }) => {
     if (query.length) {
       console.log('Query:', query);
 
+      loadingResponse.value = true;
       fetch('http://localhost:3001/', {
         method: 'POST',
         headers: {
@@ -33,6 +35,7 @@ export default component$(() => {
         },
         body: JSON.stringify({ query }),
       }).then((manhattanExpressResp) => {
+        loadingResponse.value = false;
         console.log('express resp', manhattanExpressResp);
         manhattanExpressResp.json().then(({ resp }) => {
           console.log('resp content', resp);
@@ -44,6 +47,7 @@ export default component$(() => {
             console.log(func);
             if (func) {
               func(JSON.parse(resp.function.args));
+              nav();
             } else {
               console.warn('No function found')
             }
@@ -73,12 +77,12 @@ export default component$(() => {
     <div class='flex flex-col h-screen'>
       <Header />
       <div id='formDiv' class='mt-4 h-18 flex items-center'>
-        <Form onSubmit$={handleSubmit} class='w-full flex justify-between   gap-4 mx-16'>
+        <Form autoComplete='off' onSubmit$={handleSubmit} class='w-full flex justify-between   gap-4 mx-16'>
           <Field name='query'>
             {(field, props) => <input class='flex grow h-12 border rounded border-purple-800 px-4' {...props} type='text' />}
           </Field>
-          <button class='border rounded border-purple-800 w-20' type='submit' disabled={frontierHelperForm.submitting}>
-            Go!
+          <button class='border rounded border-purple-800 w-20' type='submit' disabled={frontierHelperForm.submitting || loadingResponse.value}>
+            {loadingResponse.value ? '...' : 'Go!'}
           </button>
         </Form>
       </div>

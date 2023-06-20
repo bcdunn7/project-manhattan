@@ -12,7 +12,7 @@ export default component$(() => {
       <div class='flex items-center gap-4'>
         <img src='/favicon.ico' class='h-8 w-8' />
         <a href='/' class='text-4xl'>
-          Frontier Marial Arts
+          Frontier Martial Arts
         </a>
       </div>
 
