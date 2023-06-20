@@ -1,6 +1,6 @@
 # Project Manhattan
 
-Named in reference to the famous `Manhattan Project` which focused on learning to harness nuclear fusion, this project seeks to harness the power of AI. The goal is to revolutionize the way we use the web. The way graphical user interfaces with mouse and keybaord leapfrogged command line interfaces perhaps AI can assist us in leapfrogging the current norms of web surfing and use and allow us to use the web with more speed and precision than ever before. This is a project submission as part of Egen's 2023 GPTJam competition.
+Named in reference to the famous `Manhattan Project` which focused on learning to harness nuclear fusion, this project seeks to harness the power of AI. The goal is to revolutionize the way we use the web. The way graphical user interfaces with mouse and keyboard leapfrogged command line interfaces perhaps AI can assist us in leapfrogging the current norms of web surfing and use and allow us to use the web with more speed and precision than ever before. This is a project submission as part of Egen's 2023 GPTJam competition.
 
 ---
 
@@ -18,7 +18,7 @@ The solution is to let AI use your site with and for you. Want to navigate to a 
 
 Technically, the solution works as follows.
 
-We recieve user input (currently that is in the form of text, but voice is readily avialable as well) and send that via a Node/Express backend to an openAI model equipped for function calling/mapping. The AI parses the user's intention and selects the function/action along with all relevant parameters needed to accomplish that action and returns that information to us. Based on the function the AI recommends, we take that action upon reception of the AI's choice.
+We receive user input (currently that is in the form of text, but voice is readily available as well) and send that via a Node/Express backend to an openAI model equipped for function calling/mapping. The AI parses the user's intention and selects the function/action along with all relevant parameters needed to accomplish that action and returns that information to us. Based on the function the AI recommends, we take that action upon reception of the AI's choice.
 
 ---
 
