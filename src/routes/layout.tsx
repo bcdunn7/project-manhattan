@@ -36,15 +36,9 @@ export default component$(() => {
         body: JSON.stringify({ query }),
       }).then((manhattanExpressResp) => {
         loadingResponse.value = false;
-        console.log('express resp', manhattanExpressResp);
         manhattanExpressResp.json().then(({ resp }) => {
-          console.log('resp content', resp);
-
           if (resp.finish_reason === 'function_call') {
-            console.log(`${resp.function.name}(${JSON.stringify(resp.function.args)})`)
-
             const func: Function = { ...globalFunctionMap, ...additionalFunctions }[resp.function.name as keyof typeof globalFunctionMap];
-            console.log(func);
             if (func) {
               func(JSON.parse(resp.function.args));
               nav();
@@ -61,17 +55,6 @@ export default component$(() => {
       });
     }
   })
-
-  // TODO: is this worth it? styling for focus/cmd+k; not done either way
-  // useVisibleTask$(() => {
-  //   window.addEventListener('keydown', (keydown) => {
-
-  //     if (keydown.key?.toLowerCase() === 'k' && keydown.metaKey) {
-  //       console.log(keydown);
-  //       (document.querySelector('#formDiv') as HTMLElement).focus();
-  //     }
-  //   })
-  // })
 
   return (
     <div class='flex flex-col h-screen'>

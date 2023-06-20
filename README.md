@@ -1,18 +1,32 @@
-# Qwik City App ⚡️
+# Project Manhattan
 
-- [Qwik Docs](https://qwik.builder.io/)
-- [Discord](https://qwik.builder.io/chat)
-- [Qwik GitHub](https://github.com/BuilderIO/qwik)
-- [@QwikDev](https://twitter.com/QwikDev)
-- [Vite](https://vitejs.dev/)
+Named in reference to the famous `Manhattan Project` which focused on learning to harness nuclear fusion, this project seeks to harness the power of AI. The goal is to revolutionize the way we use the web. The way graphical user interfaces with mouse and keybaord leapfrogged command line interfaces perhaps AI can assist us in leapfrogging the current norms of web surfing and use and allow us to use the web with more speed and precision than ever before. This is a project submission as part of Egen's 2023 GPTJam competition.
 
 ---
 
-## Project Structure
+## Project Overview
 
-This project is using Qwik with [QwikCity](https://qwik.builder.io/qwikcity/overview/). QwikCity is just an extra set of tools on top of Qwik to make it easier to build a full site, including directory-based routing, layouts, and more.
+### Problem & Use Case
 
-Inside your project, you'll see the following directory structure:
+This project seeks to change the way we interact with the web. The same way a GUI and a mouse changed the way we interacted with computers, AI can help us take the next lead in web interaction. Using websites takes time, mental energy, and pre-existing knowledge. A lack of any of those means app interaction either take forever or doesn't happen at all. The problem or use case we are attempting to solve is to beg the question: 'what if you just told the app what you want it to do?' This project is at attempt to use current AI technology to make that question a reality.
+
+### Solution (General)
+
+The solution is to let AI use your site with and for you. Want to navigate to a different page, simply ask the AI to show you that page. A second later, the site navigates to your desired location. Refining the current user list and need to delete a stale user? Simply tell the website helper 'delete user named peter piper" - a second or two later the site data is reloaded, and \*snap 🫰\* the user is removed from the page. Using either text (for this POC) or voice, simply tell the application what you want to happen, wait a matter of seconds, and the action is done for you -- far faster than you ever could. With additional error checking and refinement in the middle of the process this not only allows users to use the application with faster speeds than they ever have before, but allows for greater precision as well.
+
+### Solution (Technical)
+
+Technically, the solution works as follows.
+
+We recieve user input (currently that is in the form of text, but voice is readily avialable as well) and send that via a Node/Express backend to an openAI model equipped for function calling/mapping. The AI parses the user's intention and selects the function/action along with all relevant parameters needed to accomplish that action and returns that information to us. Based on the function the AI recommends, we take that action upon reception of the AI's choice.
+
+---
+
+## Directory Structure
+
+This project was built using Qwik with [QwikCity](https://qwik.builder.io/qwikcity/overview/).
+
+It has the following directory structure:
 
 ```
 ├── public/
@@ -24,46 +38,14 @@ Inside your project, you'll see the following directory structure:
         └── ...
 ```
 
-- `src/routes`: Provides the directory based routing, which can include a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints. Please see the [routing docs](https://qwik.builder.io/qwikcity/routing/overview/) for more info.
+- `src/routes`: Provides the directory based routing, which includes a hierarchy of `layout.tsx` layout files, and an `index.tsx` file as the page. Additionally, `index.ts` files are endpoints.
 
-- `src/components`: Recommended directory for components.
-
-- `public`: Any static assets, like images, can be placed in the public directory. Please see the [Vite public directory](https://vitejs.dev/guide/assets.html#the-public-directory) for more info.
-
-## Add Integrations and deployment
-
-Use the `npm run qwik add` command to add additional integrations. Some examples of integrations include: Cloudflare, Netlify or Express server, and the [Static Site Generator (SSG)](https://qwik.builder.io/qwikcity/guides/static-site-generation/).
-
-```shell
-npm run qwik add # or `yarn qwik add`
-```
-
-## Development
-
-Development mode uses [Vite's development server](https://vitejs.dev/). During development, the `dev` command will server-side render (SSR) the output.
-
-```shell
-npm start # or `yarn start`
-```
-
-> Note: during dev mode, Vite may request a significant number of `.js` files. This does not represent a Qwik production build.
+- `src/components`: Directory to house components.
 
 ## Preview
 
-The preview command will create a production build of the client modules, a production build of `src/entry.preview.tsx`, and run a local server. The preview server is only for convenience to locally preview a production build, and it should not be used as a production server.
+To preview the project locally, run this command which will create a production build and run a local server.
 
 ```shell
 npm run preview # or `yarn preview`
 ```
-
-## Production
-
-The production build will generate client and server modules by running both client and server build commands. Additionally, the build command will use Typescript to run a type check on the source code.
-
-```shell
-npm run build # or `yarn build`
-```
-
-# project-manhattan
-
-Egen's 2023 GPT Jam, Project Manhattan
