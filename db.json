@@ -1,0 +1,135 @@
+{
+  "students": [
+    {
+      "id": 100,
+      "name": "John Smith",
+      "rank": "yellow",
+      "courseId": 100
+    },
+    {
+      "id": 113,
+      "name": "Grace Riverdeen",
+      "rank": "green",
+      "courseId": 100
+    },
+    {
+      "id": 101,
+      "name": "Peter Piper",
+      "rank": "brown-2",
+      "courseId": 102
+    },
+    {
+      "id": 102,
+      "name": "Ben Jamin",
+      "rank": "black-temp",
+      "courseId": 103
+    },
+    {
+      "id": 103,
+      "name": "Logan Thompson",
+      "rank": "red-3",
+      "courseId": 103
+    },
+    {
+      "id": 104,
+      "name": "Julia Watson",
+      "rank": "orange",
+      "courseId": 100
+    },
+    {
+      "id": 105,
+      "name": "Edi Valko",
+      "rank": "red-3",
+      "courseId": 103
+    },
+    {
+      "id": 106,
+      "name": "Terence Thomas",
+      "rank": "blue",
+      "courseId": 102
+    },
+    {
+      "id": 107,
+      "name": "Suzi Nanako",
+      "rank": "green",
+      "courseId": 102
+    },
+    {
+      "id": 108,
+      "name": "Wanda Dervila",
+      "rank": "yellow",
+      "courseId": 100
+    },
+    {
+      "id": 109,
+      "name": "Rosemary Emiliano",
+      "rank": "black-2",
+      "courseId": 103
+    },
+    {
+      "id": 110,
+      "name": "Raymond Masood",
+      "rank": "white",
+      "courseId": 100
+    },
+    {
+      "id": 111,
+      "name": "Sebastian Marko",
+      "rank": "purple",
+      "courseId": 100
+    },
+    {
+      "id": 112,
+      "name": "Sayuz Marka",
+      "rank": "brown-2",
+      "courseId": 102
+    }
+  ],
+  "instructors": [
+    {
+      "id": 100,
+      "name": "Mark Taylor",
+      "rank": "black-4"
+    },
+    {
+      "id": 101,
+      "name": "Steven Howe",
+      "rank": "black-2"
+    },
+    {
+      "id": 102,
+      "name": "Starra Zweygardt",
+      "rank": "black-1"
+    }
+  ],
+  "courses": [
+    {
+      "id": 100,
+      "name": "Starting Karate",
+      "level": "beginner",
+      "label": "1A",
+      "instructorId": 102
+    },
+    {
+      "id": 101,
+      "name": "Learning to Love Tae Kwon Do",
+      "level": "beginner",
+      "label": "1B",
+      "instructorId": 100
+    },
+    {
+      "id": 102,
+      "name": "Developing Krav Maga Skills",
+      "level": "intermediate",
+      "label": "2A",
+      "instructorId": 101
+    },
+    {
+      "id": 103,
+      "name": "Krav Maga: Advanced Knife Defense",
+      "level": "advanced",
+      "label": "3A",
+      "instructorId": 100
+    }
+  ]
+}

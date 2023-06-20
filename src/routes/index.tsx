@@ -3,8 +3,8 @@ import type { DocumentHead } from '@builder.io/qwik-city';
 
 export default component$(() => {
   return (
-    <>
-    </>
+    <div>
+    </div>
   );
 });
 
