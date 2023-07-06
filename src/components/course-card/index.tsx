@@ -22,7 +22,7 @@ export default component$<CourseCardProps>(({ course }) => {
         {((course.instructor?.id) != null) && <span>{course.instructor.name}</span>}
         <hr class='mb-2' />
         <div class='flex gap-1 flex-wrap'>
-          {(course.students?.length != null)
+          {((course.students != null) && course.students?.length > 0)
             ? course.students.sort((a, b) => {
               return BELT_RANK_ORDER[a.rank] - BELT_RANK_ORDER[b.rank]
             }).map((student) => {

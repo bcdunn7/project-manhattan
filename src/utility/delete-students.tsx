@@ -1,18 +1,15 @@
-import { type Student } from '~/routes/students/models'
+import { getStudent } from './get-student'
 
 export const deleteStudent = async (arg: { name: string }): Promise<void> => {
   console.log('deleteStudent', arg.name)
-  await fetch('http://localhost:3000/students').then((resp) => {
-    void resp.json().then((people: Student[]) => {
-      const personFound = people.find((student: Student) => student.name.toLowerCase() === arg.name.toLowerCase())
 
-      if (personFound != null) {
-        void fetch(`http://localhost:3000/students/${personFound.id}`, {
-          method: 'DELETE'
-        })
-      } else {
-        console.warn('No person found')
-      }
+  const student = await getStudent(arg)
+
+  if (student != null) {
+    void fetch(`http://localhost:3000/students/${student.id}`, {
+      method: 'DELETE'
     })
-  })
+  } else {
+    console.warn('No person found')
+  }
 }
