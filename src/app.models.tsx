@@ -25,3 +25,11 @@ export type BeltRank =
   | 'black-6'
   | 'black-7'
   | 'black-8'
+
+export interface Message {
+  id: number
+  from: string
+  to: string
+  title: string
+  body: string
+}

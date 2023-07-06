@@ -14,6 +14,7 @@ export const useFormLoader = routeLoader$<InitialValues<FrontierHelperForm>>(() 
 }))
 
 export default component$(() => {
+  const loadPercentage = useSignal(100)
   const [frontierHelperForm, { Form, Field }] = useForm<FrontierHelperForm>({
     loader: useFormLoader()
   })
@@ -28,6 +29,15 @@ export default component$(() => {
       console.log('Query:', query)
 
       loadingResponse.value = true
+      loadPercentage.value = 1
+      const loadIncrease = setInterval(() => {
+        if (loadPercentage.value < 75) {
+          loadPercentage.value += 0.5
+        } else {
+          clearInterval(loadIncrease)
+        }
+      }, 10)
+
       void fetch('http://localhost:3001/', {
         method: 'POST',
         headers: {
@@ -38,6 +48,11 @@ export default component$(() => {
         loadingResponse.value = false
         void manhattanExpressResp.json().then(({ resp }) => {
           if (resp.finish_reason === 'function_call') {
+            loadPercentage.value = 99
+            setTimeout(() => {
+              loadPercentage.value = 100
+            }, 400)
+
             const func: any = { ...globalFunctionMap, ...additionalFunctions }[resp.function.name as keyof typeof globalFunctionMap]
             if (typeof func === 'function') {
               func(JSON.parse(resp.function.args))
@@ -59,6 +74,13 @@ export default component$(() => {
   return (
     <div class='flex flex-col h-screen'>
       <Header />
+      <div class={`w-full ${loadPercentage.value !== 100 ? 'bg-gray-200' : 'bg-white'} h-1`}>
+        {
+          loadPercentage.value !== 100 && (
+            <div class="bg-purple-800 h-1" style={`width: ${loadPercentage.value}%`}></div>
+          )
+        }
+      </div>
       <div id='formDiv' class='mt-4 h-18 flex items-center'>
         <Form autoComplete='off' onSubmit$={handleSubmit} class='w-full flex justify-between   gap-4 mx-16'>
           <Field name='query'>

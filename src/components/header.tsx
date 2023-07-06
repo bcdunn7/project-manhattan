@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { component$ } from '@builder.io/qwik'
 import { useLocation } from '@builder.io/qwik-city'
+import MessageCenter from './message-center'
 
 export default component$(() => {
   const { url } = useLocation()
@@ -17,7 +18,7 @@ export default component$(() => {
         </a>
       </div>
 
-      <ul class='flex gap-4 text-xl'>
+      <ul class='flex gap-4 text-xl items-center'>
         <a
           href='/students'
           class={`hover:text-purple-600 ${isStudentsActive && 'text-purple-800 font-bold'}`}>
@@ -33,6 +34,8 @@ export default component$(() => {
           class={`hover:text-purple-600 ${isCoursesActive && 'text-purple-800 font-bold'}`}>
           Courses
         </a>
+        <MessageCenter />
+
       </ul>
     </div>
   )
